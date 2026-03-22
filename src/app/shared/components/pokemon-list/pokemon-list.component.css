@@ -1,0 +1,31 @@
+.search-pokemon{
+    font-family: 'Poppins';
+    width: 521px;
+    height: 36px;
+    background-color: #F2F2F2;
+    color:rgba(0, 0, 0, 0.41);
+    border-radius: 10px;
+    border:0px none;
+    padding: 5px 35px;
+    outline: none;
+  
+}
+
+.search-input-container{
+  position: relative;
+}
+
+.search-icon{
+    position: absolute;
+    top:10px;
+    left:5px;
+}
+
+.pokemon-tittle{
+    color:#01426A;
+    font-weight: 400;
+}
+
+.pokemon-sub-tittle{
+    color:#868686;
+}

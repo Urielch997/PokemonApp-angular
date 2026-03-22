@@ -3,13 +3,22 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 
 export const routes: Routes = [
     {
-        path:'',
-        component:MainLayoutComponent,
-        children:[
+        path: '',
+        component: MainLayoutComponent,
+        children: [
             {
-                path:'',
-                loadComponent:()=>import('./feature/home/home.component').then(m=>m.HomeComponent)
+                path: '',
+                loadComponent: () => import('./feature/home/home.component').then(m => m.HomeComponent)
+            },
+            {
+                path: 'loading',
+                loadComponent: () => import('./feature/loading/loading.component').then(m => m.LoadingComponent)
+            },
+            {
+                path: 'pokemon-selection',
+                loadComponent: () => import('./feature/pokemon-selecction/pokemon-selecction.component').then(m => m.PokemonSelecctionComponent)
             }
         ]
+
     }
 ];

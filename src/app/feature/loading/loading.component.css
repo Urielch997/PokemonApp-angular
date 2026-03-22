@@ -1,0 +1,34 @@
+.gif-container{
+    display: flex;
+    justify-content: center;
+}
+
+.gif-container img {
+    will-change: transform;
+    /* Asegura que no haya transparencia residual */
+    background-color: transparent;
+    /* Elimina posibles parpadeos en navegadores basados en Chromium */
+    image-rendering: -webkit-optimize-contrast;
+    width: 360px;
+    height: 267px;
+}
+
+.fade-in {
+    transition: opacity 0.3s ease-in;
+}
+
+.text-loading{
+    color:#185A7D;
+    font-weight: 700;
+    font-size:35px;
+}
+
+.gif-container div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-top:170px;
+}
