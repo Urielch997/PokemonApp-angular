@@ -1,0 +1,35 @@
+.poke-card {
+    background-color: #F2F2F2;
+    width: 163.4372100830078px;
+    height: 106.352294921875px;
+    border-radius: 20px;
+    margin-top: 140px;
+    position: relative;
+    padding: 10px;
+    margin:17px 0px;
+}
+
+.poke-name {
+    color: #fff;
+    background-color: #01426A;
+    border-radius: 10px;
+    font-weight: 800;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 135.73599243164062px;
+    height: 25.32196807861328px;
+    box-shadow: 0px 6.65px 5.32px 0px rgba(120, 177, 181, 0.10);
+    bottom:10px;
+    left: 15px;
+    position: absolute;
+}
+
+.poke-image {
+    top: -40px;
+    left: 55px;
+    width: 76.64004516601562px;
+    height: 83.5625228881836px;
+    background-color: #01426A;
+    position: absolute;
+}

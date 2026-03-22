@@ -132,5 +132,15 @@ body{
   font-weight:700;
 }
 
-
+.button-disable{
+  background-color: #E6E6E6;
+  width: 222px;
+  height: 50px;
+  border-radius: 10px;
+  color:#868686;
+  border: 0px;
+  font-weight: 600;
+  font-size: 18px;
+  cursor: pointer;
+}
 

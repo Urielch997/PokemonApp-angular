@@ -1,31 +1,60 @@
-.search-pokemon{
+.search-pokemon {
     font-family: 'Poppins';
+    font-weight: 600;
     width: 521px;
     height: 36px;
     background-color: #F2F2F2;
-    color:rgba(0, 0, 0, 0.41);
+    color: rgba(0, 0, 0, 0.41);
     border-radius: 10px;
-    border:0px none;
+    border: 0px none;
     padding: 5px 35px;
     outline: none;
-  
+
 }
 
-.search-input-container{
-  position: relative;
+.search-input-container {
+    position: relative;
+
+    margin-top: 35px;
 }
 
-.search-icon{
+.search-icon {
     position: absolute;
-    top:10px;
-    left:5px;
+    top: 10px;
+    left: 5px;
 }
 
-.pokemon-tittle{
-    color:#01426A;
+.pokemon-tittle {
+    color: #01426A;
+    font-size: 30px;
+}
+
+.pokemon-sub-tittle {
+    color: #868686;
+    font-size: 18px;
+}
+
+.pokemon-sub-tittle,
+.pokemon-tittle {
     font-weight: 400;
 }
 
-.pokemon-sub-tittle{
-    color:#868686;
+.text-pokemon-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-pokemon-continaer-list {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 40px;
+
+}
+
+.save-cont-button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
