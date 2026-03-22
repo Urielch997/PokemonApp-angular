@@ -1,0 +1,10 @@
+.header{
+    height: 75px;
+    box-shadow: 0px 8px 28px 0px rgba(120,177,181,0.10);
+}
+
+.header img{
+    width: 138px;
+    margin-left: 41px;
+    margin-top:12px;
+}

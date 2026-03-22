@@ -1,0 +1,9 @@
+<input type="file" accept="image/*" hidden #fileInput (change)="onFileSelected($event)" />
+<div class="upload-box" *ngIf="!fileName()" (click)="fileInput.click()">
+    <span>Adjunta una foto</span>
+    <img src="assets/upload.svg">
+</div>
+<div class="file-box" *ngIf="fileName()">
+    <span>{{fileName()}}</span>
+    <img src="assets/trash.svg" class="delete-icon" (click)="removeFile()">
+</div>

@@ -1,0 +1,32 @@
+<div class="form-container">
+
+    <div class="form-header">
+        <span class="title-form">Tu información</span>
+        <span class="subtitle-form">
+            Completa la siguiente información para completar tu perfil
+        </span>
+    </div>
+
+    <mat-form-field appearance="outline" class="custom-field">
+        <mat-label>Nombre*</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+     <app-hobby-select class="custom-field"></app-hobby-select>
+
+    <mat-form-field appearance="outline" class="custom-field">
+        <mat-label>Cumpleaños*</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="custom-field">
+        <mat-label>Documento*</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <button class="button-disable">
+        Continuar
+    </button>
+</div>

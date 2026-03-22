@@ -1,0 +1,71 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((color: (theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Poppins,
+      density: 0,
+    ));
+
+}
+
+
+:root {
+  @include mat.datepicker-overrides((calendar-date-selected-state-background-color:rgb(68, 8, 124),
+      calendar-date-focus-state-background-color:rgba(68, 8, 124, 0.281),
+      calendar-date-today-selected-state-outline-color:rgb(68, 8, 124),
+      calendar-date-selected-state-text-color:#fff));
+
+
+
+  .custom-field {
+    width: 100%;
+   
+  }
+
+  /* Fondo gris claro */
+  .custom-field .mat-mdc-text-field-wrapper {
+    background: #fff;
+
+  }
+
+  /* Bordes redondeados */
+  .custom-field .mdc-notched-outline__leading,
+  .custom-field .mdc-notched-outline__notch,
+  .custom-field .mdc-notched-outline__trailing {
+    border-color: #C8CED6;
+    
+  }
+
+
+  /* borde activo azul */
+  .custom-field .mat-focused .mdc-notched-outline__leading,
+  .custom-field .mat-focused .mdc-notched-outline__notch,
+  .custom-field .mat-focused .mdc-notched-outline__trailing {
+    border-color: #2F6DAA;
+    border-width: 2px;
+  }
+
+  /* altura del input */
+  .mat-mdc-form-field-infix {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* label */
+  .mat-mdc-form-field .mat-mdc-floating-label {
+    font-weight: 500;
+    color: #0B3A67;
+  }
+
+  .mat-mdc-chip .mat-mdc-chip-row .mdc-evolution-chip .mat-primary .mdc-evolution-chip--with-trailing-action .mat-mdc-standard-chip .mat-mdc-chip-with-trailing-icon{
+    border: 0px none;
+  }
+
+
+}

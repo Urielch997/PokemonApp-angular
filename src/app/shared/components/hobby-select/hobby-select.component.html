@@ -1,0 +1,21 @@
+<mat-form-field class="custom-field" appearance="outline">
+    <mat-label>Pasatiempo favorito</mat-label>
+    <mat-chip-grid #chipGrid>
+        @for (hobby of selectedHobbies(); track hobby) {
+        <mat-chip-row (removed)="remove(hobby)" matIconSuffix>
+            {{hobby}}
+            <button matChipRemove><img src="assets/delete-hobby.svg"/></button>
+        </mat-chip-row>
+        }
+        <input placeholder="" matInput [formControl]="searchControl" [matAutocomplete]="auto"
+            [matChipInputFor]="chipGrid" />
+    </mat-chip-grid>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="select($event.option.value)" panelClass="hobby-autocomplete">
+        @for (option of filteredOptions(); track option) {
+        <mat-option [value]="option">
+            {{option}}
+        </mat-option>
+
+        }
+    </mat-autocomplete>
+</mat-form-field>
