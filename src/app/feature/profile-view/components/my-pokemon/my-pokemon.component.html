@@ -23,7 +23,7 @@
                     <div class="progess-card">
                         <div class="progress-container">
                             <div class="progress-bar" [style.--progress]="pokemon.hp + '%'"
-                                [style.--color-type]="cardColor(pokemon.type)"></div>
+                                [style.--color-type]="cardColor(pokemon.firstType)"></div>
                         </div>
                     </div>
                     <div class="stats-text">
@@ -32,7 +32,7 @@
                     <div class="progess-card">
                         <div class="progress-container">
                             <div class="progress-bar" [style.--progress]="pokemon.attack + '%'"
-                                [style.--color-type]="cardColor(pokemon.type)"></div>
+                                [style.--color-type]="cardColor(pokemon.firstType)"></div>
                         </div>
                     </div>
                     <div class="stats-text">
@@ -41,7 +41,7 @@
                     <div class="progess-card">
                         <div class="progress-container">
                             <div class="progress-bar" [style.--progress]="pokemon.defense + '%'"
-                                [style.--color-type]="cardColor(pokemon.type)"></div>
+                                [style.--color-type]="cardColor(pokemon.firstType)"></div>
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@
                     <div class="progess-card">
                         <div class="progress-container">
                             <div class="progress-bar" [style.--progress]="pokemon.specialAttack + '%'"
-                                [style.--color-type]="cardColor(pokemon.type)"></div>
+                                [style.--color-type]="cardColor(pokemon.firstType)"></div>
                         </div>
                     </div>
                     <div class="stats-text">
@@ -60,7 +60,7 @@
                     <div class="progess-card">
                         <div class="progress-container">
                             <div class="progress-bar" [style.--progress]="pokemon.specialDefense + '%'"
-                                [style.--color-type]="cardColor(pokemon.type)"></div>
+                                [style.--color-type]="cardColor(pokemon.firstType)"></div>
                         </div>
                     </div>
                     <div class="stats-text">
@@ -69,7 +69,7 @@
                     <div class="progess-card">
                         <div class="progress-container">
                             <div class="progress-bar" [style.--progress]="pokemon.speed + '%'"
-                                [style.--color-type]="cardColor(pokemon.type)"></div>
+                                [style.--color-type]="cardColor(pokemon.firstType)"></div>
                         </div>
                     </div>
                 </div>
