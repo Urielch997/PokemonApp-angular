@@ -8,6 +8,14 @@ export const TYPE_COLORS: Record<string, string> = {
   dragon: '#7038F8',
   dark: '#705848',
   fairy: '#EE99AC',
-  default: '#A8A878',
-  flying:'#A890F0'
+  flying: '#A890F0',
+  poison: '#A040A0',
+  ground: '#E0C068',
+  rock: '#B8A038',
+  bug: '#A8B820',
+  ghost: '#705898',
+  steel: '#B8B8D0',
+  fighting: '#C03028',
+  normal: '#A8A878',
+  default: '#A8A878'
 };

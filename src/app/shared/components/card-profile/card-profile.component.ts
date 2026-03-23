@@ -18,4 +18,6 @@ export class CardProfileComponent {
     this.state.fotoUrl.set(base64); 
   }
 
+  
+
 }

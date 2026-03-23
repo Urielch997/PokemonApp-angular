@@ -1,6 +1,6 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { finalize, map, Observable } from 'rxjs';
 import { Pokemon } from '../../core/domain/pokemon-preview/pokemon.model';
 import { ResultsEntity } from '../../core/domain/pokemon-preview/pokemon.entity';
 
@@ -10,9 +10,11 @@ import { ResultsEntity } from '../../core/domain/pokemon-preview/pokemon.entity'
 export class PokemonService {
     private http = inject(HttpClient);
     private readonly API_URL = `https://pokeapi.co/api/v2/`;
+    public isLoading = signal<boolean>(false);
 
     getPokemonList(size: number, offset: number): Observable<ResultsEntity[]> {
-       return this.http.get<Pokemon>(this.API_URL + `pokemon?limit=${size}&offset=${offset}`).pipe(
+        this.isLoading.set(true)
+        return this.http.get<Pokemon>(this.API_URL + `pokemon?limit=${size}&offset=${offset}`).pipe(
             map(response => {
                 const map: ResultsEntity[] = response.results.map((pokemon, index) => {
                     // Extraer ID de la URL (ej: .../pokemon/1/)
@@ -31,7 +33,8 @@ export class PokemonService {
                 return map;
             }
 
-            )
+            ),
+            finalize(() => this.isLoading.set(false))
         )
     }
 }

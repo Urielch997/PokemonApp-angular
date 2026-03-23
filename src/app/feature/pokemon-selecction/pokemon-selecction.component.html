@@ -1,5 +1,8 @@
-<app-navigate text="¡Ya casi términamos!" subText="Revisa la información, y completa lo solicitado."></app-navigate>
-<div class="container-pokemon-selection">
+<app-navigate text="¡Ya casi términamos!" subText="Revisa la información, y completa lo solicitado." [class.display]="isLoading()"></app-navigate>
+@if(isLoading()){
+<app-loading></app-loading>
+}
+<div class="container-pokemon-selection" [class.display]="isLoading()">
     <app-card-profile></app-card-profile>
     <app-pokemon-list></app-pokemon-list>
 </div>

@@ -1,28 +1,35 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
 import { MyPokemonComponent } from './components/my-pokemon/my-pokemon.component';
 import { CardProfileComponent } from "../../shared/components/card-profile/card-profile.component";
 import { PokemonStatsService } from '../../shared/services/pokemon.stats.service';
 import { LoadingComponent } from '../../shared/components/loading/loading.component';
+import { timer } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ProfileStateService } from '../../shared/services/profile.state.service';
 
 @Component({
   selector: 'app-profile-view',
   standalone: true,
-  imports: [MyPokemonComponent, CardProfileComponent,LoadingComponent],
+  imports: [MyPokemonComponent, CardProfileComponent, LoadingComponent],
   templateUrl: './profile-view.component.html',
   styleUrl: './profile-view.component.css'
 })
 export class ProfileViewComponent {
   // public pokemonStasService = inject(PokemonStatsService);
-   load = signal<Boolean>(true)
+  load = signal<Boolean>(true)
+  private destroyRef = inject(DestroyRef);
+  profileStats = inject(ProfileStateService)
 
 
-   ngOnInit(): void {
+  ngOnInit(): void {
     this.loadingTimeOut();
   }
 
-  loadingTimeOut(){
-    setTimeout(()=>{
-      this.load.set(false)
-    },3000)
+  loadingTimeOut() {
+    timer(3000)
+      .pipe(takeUntilDestroyed(this.destroyRef)) 
+      .subscribe(() => {
+        this.load.set(false);
+      });
   }
 }

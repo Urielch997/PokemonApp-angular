@@ -2,9 +2,9 @@
     @if (load()) {
         <app-loading></app-loading>
     }
-    <div [class.loading-blur]="load()">
-        <span>¡Hola José!</span>
-        <button class="button-profile">
+    <div [class.loading-blur]="load()" class="header-saludo">
+        <span class="nombre-saludo"  [class.loading-blur]="load()">{{'¡Hola ' +profileStats.nombre() + '!'}}</span>
+        <button class="button-profile"  [class.loading-blur]="load()">
             <img src="assets/edit.svg" />
             <span>Editar perfil</span>
         </button>

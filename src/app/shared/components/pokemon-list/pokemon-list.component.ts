@@ -6,6 +6,7 @@ import { ResultsEntity } from '../../../core/domain/pokemon-preview/pokemon.enti
 import { CommonModule } from '@angular/common';
 import { SelectionService } from '../../services/selection.service';
 import { Router } from '@angular/router';
+import { ProfileStateService } from '../../services/profile.state.service';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -17,6 +18,7 @@ import { Router } from '@angular/router';
 export class PokemonListComponent {
   private pokemonService = inject(PokemonService);
   private selectionService = inject(SelectionService)
+  private profileService = inject(ProfileStateService)
   private route = inject(Router);
 
   pokemonList = toSignal(this.pokemonService.getPokemonList(151, 0), { initialValue: [] as ResultsEntity[] });
@@ -35,6 +37,7 @@ export class PokemonListComponent {
 
 
   save() {
+    this.profileService.step.set("3");
     this.route.navigate(["/profile-view"])
   }
 

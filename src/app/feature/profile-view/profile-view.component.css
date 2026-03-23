@@ -1,9 +1,30 @@
 .container-profile {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     width: 88%;
 }
 
 .loading-blur {
     display: none;
+}
+
+.nombre-saludo{
+    font-size:40px;
+    font-weight: 700;
+}
+
+.header-saludo{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 35px;
+    width: 80%;
+}
+
+
+.button-profile{
+    margin-left: 15px;
 }

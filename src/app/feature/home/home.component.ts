@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { NavigateComponent } from '../../shared/components/navigate/navigate.component';
 import { CardProfileComponent } from '../../shared/components/card-profile/card-profile.component';
 import { PerfilComponent } from '../../shared/components/perfil/perfil.component';
@@ -11,5 +11,5 @@ import { PerfilComponent } from '../../shared/components/perfil/perfil.component
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  
 }

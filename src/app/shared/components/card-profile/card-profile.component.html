@@ -1,10 +1,20 @@
 <div class="card-container">
     <div class="text">
 
-        @if (state.step() === "2" ) {
+        @if (state.step() === "2") {
         <span class="title-name">{{state.nombre()}}</span>
-        } @else{
-        <span class="title-card">Imágen perfil</span>
+        }
+        @if(state.step() === "3" && state.step() !== "2"){
+             <span>
+                Entrenador
+             </span>
+             <div>
+                <img src="assets/sign.svg"/>
+             </div>
+        } 
+        
+        @if(state.step() !== "2" && state.step() !== "3") {
+             <span class="title-card">Imágen perfil</span>
         }
 
     </div>
@@ -15,7 +25,7 @@
         </div>
     </div>
     <div class="upload">
-        @if (state.step() === "2" ) {
+        @if (state.step() === "2" ||state.step() === "3" ) {
         <div>
             <span class="tittle-detail">Pasatiempos:</span>
             <span class="tittle-text">{{state.pasatiempo()}}</span>
@@ -29,7 +39,7 @@
             <span class="tittle-detail">DUI:</span>
             <span class="tittle-text">{{state.documento()}}</span>
 
-        }
+            }
         </div>
         }@else{
         <app-upload (fileChanged)="onImageUploaded($event)"></app-upload>

@@ -3,3 +3,7 @@
     justify-content: space-around;
     width: 88%;
 }
+
+.display{
+    display: none;
+}
