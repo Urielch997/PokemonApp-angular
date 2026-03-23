@@ -19,7 +19,7 @@ export class PokemonListComponent {
   private selectionService = inject(SelectionService)
   private route = inject(Router);
 
-  pokemonList = toSignal(this.pokemonService.getPokemonList(9, 0), { initialValue: [] as ResultsEntity[] });
+  pokemonList = toSignal(this.pokemonService.getPokemonList(151, 0), { initialValue: [] as ResultsEntity[] });
 
   searchQuery = signal('');
 

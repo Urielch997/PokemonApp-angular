@@ -11,10 +11,6 @@ export const routes: Routes = [
                 loadComponent: () => import('./feature/home/home.component').then(m => m.HomeComponent)
             },
             {
-                path: 'loading',
-                loadComponent: () => import('./shared/components/loading/loading.component').then(m => m.LoadingComponent)
-            },
-            {
                 path: 'pokemon-selection',
                 loadComponent: () => import('./feature/pokemon-selecction/pokemon-selecction.component').then(m => m.PokemonSelecctionComponent)
             },
