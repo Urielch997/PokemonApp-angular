@@ -5,10 +5,9 @@ import { ProfileStateService } from '../services/profile.state.service';
 export const stepGuard: CanActivateFn = () => {
     const state = inject(ProfileStateService);
     const router = inject(Router);
-
-    // Verificamos si el formulario del paso 1 es válido (usando tu computed)
+    
     if (state.isFormValid()) {
-        return true; // Puede pasar al siguiente paso
+        return true; 
     }
 
     return router.parseUrl('/');
