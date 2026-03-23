@@ -7,11 +7,15 @@
         <img src="assets/search-icon.svg" class="search-icon" />
         <input class="search-pokemon" placeholder="Buscar por índice, nombre..." />
     </div>
-    <div class="card-pokemon-continaer-list">
-        @for (p of filteredPokemon(); track p.name) {
-            <app-poke-card [id]="p.id" [name]="p.name" [img]="p.image"></app-poke-card>
-        }
-    </div>
+    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+        <div class="card-pokemon-continaer-list">
+            <div *cdkVirtualFor="let p of filteredPokemon()">
+               
+                <app-poke-card [id]="p.id" [name]="p.name" [img]="p.image"></app-poke-card>
+                
+            </div>
+        </div>
+    </cdk-virtual-scroll-viewport>
     <div class="save-cont-button" (click)="save()">
         <button class="button-disable" [class.enable-button]="enabledButton()">Guardar</button>
     </div>

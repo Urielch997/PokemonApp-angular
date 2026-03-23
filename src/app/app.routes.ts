@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { stepGuard } from './shared/guards/route.guard';
 
 export const routes: Routes = [
     {
@@ -12,11 +13,13 @@ export const routes: Routes = [
             },
             {
                 path: 'pokemon-selection',
-                loadComponent: () => import('./feature/pokemon-selecction/pokemon-selecction.component').then(m => m.PokemonSelecctionComponent)
+                loadComponent: () => import('./feature/pokemon-selecction/pokemon-selecction.component').then(m => m.PokemonSelecctionComponent),
+                canActivate: [stepGuard]
             },
             {
                 path: 'profile-view',
-                loadComponent: () => import('./feature/profile-view/profile-view.component').then(m => m.ProfileViewComponent)
+                loadComponent: () => import('./feature/profile-view/profile-view.component').then(m => m.ProfileViewComponent),
+                canActivate: [stepGuard]
             }
         ]
 

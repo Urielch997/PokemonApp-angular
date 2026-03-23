@@ -50,16 +50,22 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     margin-bottom: 40px;
-
+    width: 100%;
 }
 
-.save-cont-button{
+.save-cont-button {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.enable-button{
+.enable-button {
     background-color: rgba(1, 66, 106, 1);
-    color:#fff;
+    color: #fff;
+}
+
+.example-viewport {
+
+    width: 600px;
+    height: 450px;
 }

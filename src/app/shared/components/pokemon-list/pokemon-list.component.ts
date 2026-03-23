@@ -7,11 +7,12 @@ import { CommonModule } from '@angular/common';
 import { SelectionService } from '../../services/selection.service';
 import { Router } from '@angular/router';
 import { ProfileStateService } from '../../services/profile.state.service';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-pokemon-list',
   standalone: true,
-  imports: [PokeCardComponent, CommonModule],
+  imports: [PokeCardComponent, CommonModule,ScrollingModule],
   templateUrl: './pokemon-list.component.html',
   styleUrl: './pokemon-list.component.css'
 })
