@@ -3,11 +3,13 @@
         <span class="title-card">Imágen perfil</span>
     </div>
     <div class="card-photo">
-        <div class="card-photo-container">
-            <img class="photo" src="assets/user-profile.svg" />
+        <div class="card-photo-container" 
+        [class.has-image]="profileImage() !== 'assets/user-profile.svg'"
+        >
+            <img class="photo" [class.photo-upload]="profileImage() !== 'assets/user-profile.svg'" [src]="profileImage()" alt="Perfil"/>
         </div>
     </div>
     <div class="upload">
-        <app-upload></app-upload>
+        <app-upload (fileChanged)="onImageUploaded($event)"></app-upload>
     </div>
 </div>
