@@ -1,10 +1,5 @@
-.button-profile{
-    border: 1px solid rgba(1, 66, 106, 1);
-    background-color: #fff;
-    color:rgba(1, 66, 106, 1);
-    border-radius: 10px;
-    padding: 5px 25px;
+.container-profile {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    width: 88%;
 }

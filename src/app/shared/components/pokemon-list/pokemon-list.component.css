@@ -58,3 +58,8 @@
     display: flex;
     justify-content: center;
 }
+
+.enable-button{
+    background-color: rgba(1, 66, 106, 1);
+    color:#fff;
+}

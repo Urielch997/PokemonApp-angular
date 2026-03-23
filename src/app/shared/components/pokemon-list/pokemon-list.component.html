@@ -8,17 +8,11 @@
         <input class="search-pokemon" placeholder="Buscar por índice, nombre..." />
     </div>
     <div class="card-pokemon-continaer-list">
-        <app-poke-card></app-poke-card>
-        <app-poke-card></app-poke-card>
-        <app-poke-card></app-poke-card>
-        <app-poke-card></app-poke-card>
-        <app-poke-card></app-poke-card>
-        <app-poke-card></app-poke-card>
-        <app-poke-card></app-poke-card>
-        <app-poke-card></app-poke-card>
-        <app-poke-card></app-poke-card>
+        @for (p of filteredPokemon(); track p.name) {
+            <app-poke-card [id]="p.id" [name]="p.name" [img]="p.image"></app-poke-card>
+        }
     </div>
     <div class="save-cont-button">
-        <button class="button-disable">Guardar</button>
+        <button class="button-disable" [class.enable-button]="enabledButton()">Guardar</button>
     </div>
 </div>

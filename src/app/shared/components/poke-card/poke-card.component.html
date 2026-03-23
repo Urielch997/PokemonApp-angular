@@ -1,11 +1,11 @@
-<div class="card-container">
-    <div class="poke-card">
+<div class="card-container" (click)="togglePokemon(id())">
+    <div class="poke-card" [class.selected-bg]="isSelected()">
         <div class="poke-image">
-            <img />
+            <img src={{img()}} [alt]="name()"/>
         </div>
         <div class="poke-name">
-            <span class="poke-number">#001</span>
-            <span class="poke-name-text">Bulbasur</span>
+            <span class="poke-number">#{{ id() }}</span>
+            <span class="poke-name-text">{{name()}}</span>
         </div>
     </div>
 </div>

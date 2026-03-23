@@ -1,0 +1,119 @@
+.my-pokemon-list {
+    max-height: 650px;
+    overflow-x: hidden;
+    margin-top: 10px;
+    padding: 0px 10px;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 86px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(217, 217, 214, 1);
+        border-radius: 20px;
+    }
+}
+
+.card-my-poke {
+    width: 637px;
+    height: 317px;
+    background-color: rgba(242, 242, 242, 1);
+    border-radius: 15px;
+    display: flex;
+    margin-top: 50px;
+}
+
+.progress-container {
+    width: 100%;
+    height: 15px;
+    background-color: #f0f2f5;
+    border-radius: 50px;
+    padding: 2px;
+    border: 2px rgba(242, 242, 242, 1) solid;
+    box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.1), inset 0px 12px 15px -6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--color-type);
+    border-radius: 50px;
+    width: var(--progress);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: width 0.4s ease;
+}
+
+.stats-text {
+    width: 50%;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+.progess-card {
+    width: 50%;
+}
+
+.stats-card {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.stats-card,
+.stats-text {
+    margin-top: 10px;
+}
+
+.stats-container {
+    width: 60%;
+    margin-top: 30px;
+}
+
+.image {
+    width: 207px;
+    height: 220.57440185546875px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image img{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.tittle-list {
+    font-size: 30px;
+    color: rgba(1, 66, 106, 1);
+}
+
+.my-poke-tittle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 90px;
+}
+
+.button-profile {
+    height: 30px;
+}
+
+.poke-name{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.poke-type{
+    font-size: 18px;
+    font-weight: 400;
+}

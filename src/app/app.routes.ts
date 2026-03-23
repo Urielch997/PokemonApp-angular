@@ -12,7 +12,7 @@ export const routes: Routes = [
             },
             {
                 path: 'loading',
-                loadComponent: () => import('./feature/loading/loading.component').then(m => m.LoadingComponent)
+                loadComponent: () => import('./shared/components/loading/loading.component').then(m => m.LoadingComponent)
             },
             {
                 path: 'pokemon-selection',

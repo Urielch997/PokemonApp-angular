@@ -5,8 +5,8 @@ import { CardProfileComponent } from '../../shared/components/card-profile/card-
 
 @Component({
   selector: 'app-pokemon-selecction',
-  standalone:true,
-  imports: [PokemonListComponent,NavigateComponent,CardProfileComponent],
+  standalone: true,
+  imports: [PokemonListComponent, NavigateComponent, CardProfileComponent],
   templateUrl: './pokemon-selecction.component.html',
   styleUrl: './pokemon-selecction.component.css'
 })
