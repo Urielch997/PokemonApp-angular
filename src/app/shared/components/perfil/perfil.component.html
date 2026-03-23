@@ -17,11 +17,11 @@
     <mat-form-field appearance="outline" class="custom-field">
         <mat-label>Cumpleaños*</mat-label>
         <input matInput [matDatepicker]="picker" [value]="state.cumpleanos() ? state.cumpleanos() : null"
-            (dateChange)="onDateChange($event)" readonly>
+            (dateChange)="onDateChange($event)" readonly [max]="maxDate">
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    
+
     @if (state.esMayorDeEdad()) {
     <mat-form-field appearance="outline" class="custom-field">
         <mat-label>Documento*</mat-label>

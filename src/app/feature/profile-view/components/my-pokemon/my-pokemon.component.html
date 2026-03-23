@@ -7,11 +7,13 @@
         </button>
     </div>
     <div class="my-pokemon-list">
+
+        @for (pokemon of pokemonResults(); track pokemon.attack) {
         <div class="card-my-poke">
             <div class="image">
-                <img [src]="pokeStats().url" />
-                <span class="poke-name">{{pokeStats().name}}</span>
-                <span class="poke-type">{{pokeStats().type}}</span>
+                <img [src]="pokemon.url" />
+                <span class="poke-name">{{pokemon.name}}</span>
+                <span class="poke-type">{{pokemon.type}}</span>
             </div>
             <div class="stats-container">
                 <div class="stats-card">
@@ -20,8 +22,8 @@
                     </div>
                     <div class="progess-card">
                         <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats().hp + '%'"
-                                [style.--color-type]="cardColor()"></div>
+                            <div class="progress-bar" [style.--progress]="pokemon.hp + '%'"
+                                [style.--color-type]="cardColor(pokemon.type)"></div>
                         </div>
                     </div>
                     <div class="stats-text">
@@ -29,8 +31,8 @@
                     </div>
                     <div class="progess-card">
                         <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats().attack + '%'"
-                                [style.--color-type]="cardColor()"></div>
+                            <div class="progress-bar" [style.--progress]="pokemon.attack + '%'"
+                                [style.--color-type]="cardColor(pokemon.type)"></div>
                         </div>
                     </div>
                     <div class="stats-text">
@@ -38,8 +40,8 @@
                     </div>
                     <div class="progess-card">
                         <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats().defense + '%'"
-                                [style.--color-type]="cardColor()"></div>
+                            <div class="progress-bar" [style.--progress]="pokemon.defense + '%'"
+                                [style.--color-type]="cardColor(pokemon.type)"></div>
                         </div>
                     </div>
 
@@ -48,8 +50,8 @@
                     </div>
                     <div class="progess-card">
                         <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats().specialAttack + '%'"
-                                [style.--color-type]="cardColor()"></div>
+                            <div class="progress-bar" [style.--progress]="pokemon.specialAttack + '%'"
+                                [style.--color-type]="cardColor(pokemon.type)"></div>
                         </div>
                     </div>
                     <div class="stats-text">
@@ -57,8 +59,8 @@
                     </div>
                     <div class="progess-card">
                         <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats().specialDefense + '%'"
-                                [style.--color-type]="cardColor()"></div>
+                            <div class="progress-bar" [style.--progress]="pokemon.specialDefense + '%'"
+                                [style.--color-type]="cardColor(pokemon.type)"></div>
                         </div>
                     </div>
                     <div class="stats-text">
@@ -66,147 +68,14 @@
                     </div>
                     <div class="progess-card">
                         <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats().speed + '%'"
-                                [style.--color-type]="cardColor()"></div>
+                            <div class="progress-bar" [style.--progress]="pokemon.speed + '%'"
+                                [style.--color-type]="cardColor(pokemon.type)"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        }
 
-
-        <div class="card-my-poke">
-            <div class="image">
-                <img [src]="pokeStats2().url" />
-                <span class="poke-name">{{pokeStats2().name}}</span>
-                <span class="poke-type">{{pokeStats2().type}}</span>
-            </div>
-            <div class="stats-container">
-                <div class="stats-card">
-                    <div class="stats-text">
-                        HP
-                    </div>
-                    <div class="progess-card">
-                        <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats2().hp + '%'"
-                                [style.--color-type]="cardColor2()"></div>
-                        </div>
-                    </div>
-                    <div class="stats-text">
-                        Ataque
-                    </div>
-                    <div class="progess-card">
-                        <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats2().attack + '%'"
-                                [style.--color-type]="cardColor2()"></div>
-                        </div>
-                    </div>
-                    <div class="stats-text">
-                        Defensa
-                    </div>
-                    <div class="progess-card">
-                        <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats2().defense + '%'"
-                                [style.--color-type]="cardColor2()"></div>
-                        </div>
-                    </div>
-
-                    <div class="stats-text">
-                        Ataque Especial
-                    </div>
-                    <div class="progess-card">
-                        <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats2().specialAttack + '%'"
-                                [style.--color-type]="cardColor2()"></div>
-                        </div>
-                    </div>
-                    <div class="stats-text">
-                        Defensa Especial
-                    </div>
-                    <div class="progess-card">
-                        <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats2().specialDefense + '%'"
-                                [style.--color-type]="cardColor2()"></div>
-                        </div>
-                    </div>
-                    <div class="stats-text">
-                        Velocidad
-                    </div>
-                    <div class="progess-card">
-                        <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats2().speed + '%'"
-                                [style.--color-type]="cardColor2()"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card-my-poke">
-            <div class="image">
-                <img [src]="pokeStats3().url" />
-                <span class="poke-name">{{pokeStats3().name}}</span>
-                <span class="poke-type">{{pokeStats3().type}}</span>
-            </div>
-            <div class="stats-container">
-                <div class="stats-card">
-                    <div class="stats-text">
-                        HP
-                    </div>
-                    <div class="progess-card">
-                        <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats3().hp + '%'"
-                                [style.--color-type]="cardColor3()"></div>
-                        </div>
-                    </div>
-                    <div class="stats-text">
-                        Ataque
-                    </div>
-                    <div class="progess-card">
-                        <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats3().attack + '%'"
-                                [style.--color-type]="cardColor3()"></div>
-                        </div>
-                    </div>
-                    <div class="stats-text">
-                        Defensa
-                    </div>
-                    <div class="progess-card">
-                        <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats3().defense + '%'"
-                                [style.--color-type]="cardColor3()"></div>
-                        </div>
-                    </div>
-
-                    <div class="stats-text">
-                        Ataque Especial
-                    </div>
-                    <div class="progess-card">
-                        <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats3().specialAttack + '%'"
-                                [style.--color-type]="cardColor3()"></div>
-                        </div>
-                    </div>
-                    <div class="stats-text">
-                        Defensa Especial
-                    </div>
-                    <div class="progess-card">
-                        <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats3().specialDefense + '%'"
-                                [style.--color-type]="cardColor3()"></div>
-                        </div>
-                    </div>
-                    <div class="stats-text">
-                        Velocidad
-                    </div>
-                    <div class="progess-card">
-                        <div class="progress-container">
-                            <div class="progress-bar" [style.--progress]="pokeStats3().speed + '%'"
-                                [style.--color-type]="cardColor3()"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>

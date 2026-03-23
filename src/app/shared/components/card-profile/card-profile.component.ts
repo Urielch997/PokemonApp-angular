@@ -12,7 +12,6 @@ import { ProfileStateService } from '../../services/profile.state.service';
 export class CardProfileComponent {
   state = inject(ProfileStateService);
   fileChanged = output<string>();
-
   profileImage = computed(() => this.state.fotoUrl() || 'assets/user-profile.svg');
 
   onImageUploaded(base64: string) {

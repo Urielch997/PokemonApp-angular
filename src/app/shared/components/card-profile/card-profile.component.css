@@ -50,6 +50,33 @@
     margin-left: 25px;
 }
 
+.title-name{
+    font-weight: 700;
+    font-size: 35px;
+    color:rgba(24, 90, 125, 1)
+}
+
+
+.upload div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.tittle-detail{
+    font-weight: 700;
+    font-size: 24px;
+    color:rgba(75, 75, 75, 1);
+}
+
+
+.tittle-text{
+    font-weight: 400;
+    font-size:24px;
+
+}
+
 .card-photo-container .has-image {
   background-color: transparent; 
   border: none;               

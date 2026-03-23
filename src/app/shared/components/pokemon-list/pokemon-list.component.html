@@ -12,7 +12,7 @@
             <app-poke-card [id]="p.id" [name]="p.name" [img]="p.image"></app-poke-card>
         }
     </div>
-    <div class="save-cont-button">
+    <div class="save-cont-button" (click)="save()">
         <button class="button-disable" [class.enable-button]="enabledButton()">Guardar</button>
     </div>
 </div>

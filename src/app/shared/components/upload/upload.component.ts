@@ -26,8 +26,12 @@ export class UploadComponent {
     this.fileName.set(file.name);
 
     const reader = new FileReader();
-    reader.onload = (e: any) => {
-      this.fileChanged.emit(e.target.result);
+    reader.onload = (e: ProgressEvent<FileReader>) => {
+      const result = e.target?.result;
+
+      if (typeof result === 'string') {
+        this.fileChanged.emit(result);
+      }
     };
     reader.readAsDataURL(file);
   }

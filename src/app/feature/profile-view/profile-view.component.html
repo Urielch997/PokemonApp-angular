@@ -1,11 +1,15 @@
 <div class="container-profile">
-    <div>
+    @if (load()) {
+        <app-loading></app-loading>
+    }
+    <div [class.loading-blur]="load()">
         <span>¡Hola José!</span>
         <button class="button-profile">
-            <img src="assets/edit.svg"/>
+            <img src="assets/edit.svg" />
             <span>Editar perfil</span>
         </button>
     </div>
-    <app-card-profile></app-card-profile>
-    <app-my-pokemon></app-my-pokemon>
+    <app-card-profile [class.loading-blur]="load()"></app-card-profile>
+    <app-my-pokemon [class.loading-blur]="load()"></app-my-pokemon>
+
 </div>

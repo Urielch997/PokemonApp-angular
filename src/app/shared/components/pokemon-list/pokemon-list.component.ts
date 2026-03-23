@@ -5,6 +5,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ResultsEntity } from '../../../core/domain/pokemon-preview/pokemon.entity';
 import { CommonModule } from '@angular/common';
 import { SelectionService } from '../../services/selection.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -16,6 +17,7 @@ import { SelectionService } from '../../services/selection.service';
 export class PokemonListComponent {
   private pokemonService = inject(PokemonService);
   private selectionService = inject(SelectionService)
+  private route = inject(Router);
 
   pokemonList = toSignal(this.pokemonService.getPokemonList(9, 0), { initialValue: [] as ResultsEntity[] });
 
@@ -30,6 +32,11 @@ export class PokemonListComponent {
   enabledButton = computed(() =>
     this.selectionService.isFull()
   )
+
+
+  save() {
+    this.route.navigate(["/profile-view"])
+  }
 
 
 

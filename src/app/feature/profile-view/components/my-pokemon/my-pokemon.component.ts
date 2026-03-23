@@ -1,9 +1,11 @@
 import { Component, computed, inject } from '@angular/core';
 import { PokemonStatsService } from '../../../../shared/services/pokemon.stats.service';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { PokemonDetailEntity } from '../../../../core/domain/pokemon-detail/pokemon-detail.entity';
 import { CommonModule } from '@angular/common';
 import { TYPE_COLORS } from '../../../../core/domain/pokemon-detail/types.color';
+import { SelectionService } from '../../../../shared/services/selection.service';
+import { forkJoin, of, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-my-pokemon',
@@ -12,37 +14,31 @@ import { TYPE_COLORS } from '../../../../core/domain/pokemon-detail/types.color'
   styleUrl: './my-pokemon.component.css'
 })
 export class MyPokemonComponent {
+  private selectionService = inject(SelectionService);
   private pokemonStatsService = inject(PokemonStatsService);
 
-  pokemonStats = toSignal(this.pokemonStatsService.getPokemonStats(1), { initialValue: {} as PokemonDetailEntity });
-  pokemonStats2 = toSignal(this.pokemonStatsService.getPokemonStats(6), { initialValue: {} as PokemonDetailEntity });
-  pokemonStats3 = toSignal(this.pokemonStatsService.getPokemonStats(9), { initialValue: {} as PokemonDetailEntity });
+  ids = this.selectionService.selectedPokemon;
 
-  pokeStats = computed(() => {
-    return this.pokemonStats();
-  })
+  pokemonResults = toSignal(
+    toObservable(this.ids).pipe(
+      switchMap(ids => {
+        if (!ids || ids.length === 0) return of([]);
 
-  pokeStats2 = computed(() => {
-    return this.pokemonStats2();
-  })
+        const peticiones = ids.map(id => this.pokemonStatsService.getPokemonStats(id));
 
-  pokeStats3 = computed(() => {
-    return this.pokemonStats3();
-  })
 
-  cardColor = computed(() => {
-    const type = this.pokeStats().firstType;
+        return forkJoin(peticiones);
+      })
+    ),
+    { initialValue: [] } 
+  );
+
+
+  isLoading = computed(() => this.ids().length > 0 && this.pokemonResults().length === 0);
+
+
+  cardColor(type:string){
     return TYPE_COLORS[type] || TYPE_COLORS['default'];
-  });
+  };
 
-
-   cardColor2 = computed(() => {
-    const type = this.pokeStats2().firstType;
-    return TYPE_COLORS[type] || TYPE_COLORS['default'];
-  });
-
-     cardColor3 = computed(() => {
-    const type = this.pokeStats3().firstType;
-    return TYPE_COLORS[type] || TYPE_COLORS['default'];
-  });
 }

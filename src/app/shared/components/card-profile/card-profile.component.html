@@ -1,15 +1,38 @@
 <div class="card-container">
     <div class="text">
+
+        @if (state.step() === "2" ) {
+        <span class="title-name">{{state.nombre()}}</span>
+        } @else{
         <span class="title-card">Imágen perfil</span>
+        }
+
     </div>
     <div class="card-photo">
-        <div class="card-photo-container" 
-        [class.has-image]="profileImage() !== 'assets/user-profile.svg'"
-        >
-            <img class="photo" [class.photo-upload]="profileImage() !== 'assets/user-profile.svg'" [src]="profileImage()" alt="Perfil"/>
+        <div class="card-photo-container" [class.has-image]="profileImage() !== 'assets/user-profile.svg'">
+            <img class="photo" [class.photo-upload]="profileImage() !== 'assets/user-profile.svg'"
+                [src]="profileImage()" alt="Perfil" />
         </div>
     </div>
     <div class="upload">
+        @if (state.step() === "2" ) {
+        <div>
+            <span class="tittle-detail">Pasatiempos:</span>
+            <span class="tittle-text">{{state.pasatiempo()}}</span>
+        </div>
+        <div>
+            <span class="tittle-detail">Edad:</span>
+            <span class="tittle-text">{{state.edad() + " años"}}</span>
+        </div>
+        <div>
+            @if(state.documento().length){
+            <span class="tittle-detail">DUI:</span>
+            <span class="tittle-text">{{state.documento()}}</span>
+
+        }
+        </div>
+        }@else{
         <app-upload (fileChanged)="onImageUploaded($event)"></app-upload>
+        }
     </div>
 </div>

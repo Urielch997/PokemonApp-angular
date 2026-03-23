@@ -23,9 +23,8 @@ import { Router } from '@angular/router';
 })
 export class PerfilComponent {
   state = inject(ProfileStateService);
-  router = inject(Router
-
-  );
+  router = inject(Router);
+  maxDate = new Date();
 
   onDateChange(event: MatDatepickerInputEvent<Date>) {
     const date = event.value;
@@ -34,15 +33,18 @@ export class PerfilComponent {
     }
   }
 
+
+
   continuar() {
     if (this.state.isFormValid()) {
+      this.state.numStep("2");
       this.state.saveData();
       this.router.navigate(['/pokemon-selection']);
     }
   }
 
   onDuiInput(event: Event) {
-    let val = (event.target as HTMLInputElement).value.replace(/\D/g, ''); 
+    let val = (event.target as HTMLInputElement).value.replace(/\D/g, '');
     if (val.length > 8) {
       val = val.slice(0, 8) + '-' + val.slice(8, 9);
     }
