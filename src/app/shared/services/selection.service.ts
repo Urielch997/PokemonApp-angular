@@ -35,10 +35,10 @@ export class SelectionService {
     toggleId(id: number) {
         this._selectedPokemon.update(ids => {
             if (ids.includes(id)) {
-                // Si ya está, lo quitamos
+        
                 return ids.filter(i => i !== id);
             }
-            // Si no está, validamos el límite de 3 antes de añadir
+        
             return ids.length < 3 ? [...ids, id] : ids;
         });
     }

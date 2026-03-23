@@ -1,5 +1,6 @@
-import { Component, output, signal } from '@angular/core';
+import { Component, computed, inject, output } from '@angular/core';
 import { UploadComponent } from '../upload/upload.component';
+import { ProfileStateService } from '../../services/profile.state.service';
 
 @Component({
   selector: 'app-card-profile',
@@ -9,14 +10,13 @@ import { UploadComponent } from '../upload/upload.component';
   styleUrl: './card-profile.component.css'
 })
 export class CardProfileComponent {
-
-  profileImage = signal<string>('assets/user-profile.svg');
+  state = inject(ProfileStateService);
   fileChanged = output<string>();
 
+  profileImage = computed(() => this.state.fotoUrl() || 'assets/user-profile.svg');
 
-
-  onImageUploaded(newImage: string) {
-    this.profileImage.set(newImage);
+  onImageUploaded(base64: string) {
+    this.state.fotoUrl.set(base64); 
   }
 
 }

@@ -9,24 +9,32 @@
 
     <mat-form-field appearance="outline" class="custom-field">
         <mat-label>Nombre*</mat-label>
-        <input matInput>
+        <input matInput [value]="state.nombre()" (input)="state.nombre.set($any($event.target).value)">
     </mat-form-field>
 
-     <app-hobby-select class="custom-field"></app-hobby-select>
+    <app-hobby-select class="custom-field"></app-hobby-select>
 
     <mat-form-field appearance="outline" class="custom-field">
         <mat-label>Cumpleaños*</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [matDatepicker]="picker" [value]="state.cumpleanos() ? state.cumpleanos() : null"
+            (dateChange)="onDateChange($event)" readonly>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-
+    
+    @if (state.esMayorDeEdad()) {
     <mat-form-field appearance="outline" class="custom-field">
         <mat-label>Documento*</mat-label>
-        <input matInput>
-    </mat-form-field>
+        <input matInput [value]="state.documento()" (input)="onDuiInput($event)" placeholder="00000000-0"
+            maxlength="10">
 
-    <button class="button-disable">
+        @if (state.documento().length > 0 && !state.isDuiValid()) {
+        <mat-error>Formato inválido (ej: 12345678-9)</mat-error>
+        }
+    </mat-form-field>
+    }
+
+    <button class="btn-continuar" [disabled]="!state.isFormValid()" (click)="continuar()">
         Continuar
     </button>
 </div>

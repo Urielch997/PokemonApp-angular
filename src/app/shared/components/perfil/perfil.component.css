@@ -1,31 +1,51 @@
-.form-container{
+.form-container {
   width: 380px;
-  display:flex;
-  flex-direction:column;
-  gap:18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.form-header{
-  display:flex;
-  flex-direction:column;
-  margin-bottom:10px;
+.form-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
-.title-form{
-  font-size:22px;
-  font-weight:600;
-  color:#0B3A67;
+.title-form {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0B3A67;
 }
 
-.subtitle-form{
-  font-size:14px;
-  color:#6C757D;
+.subtitle-form {
+  font-size: 14px;
+  color: #6C757D;
 }
 
-.form-container{
+.form-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
   justify-content: center;
   align-items: center;
+}
+
+.btn-continuar {
+  background-color: #004a8c;
+  color: white;
+  transition: all 0.3s ease;
+  width: 222px;
+  height: 50px;
+  border-radius: 10px;
+  border: 0px;
+  font-weight: 600;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btn-continuar:disabled {
+  background-color: #E6E6E6;
+
+  color: #868686;
+
 }
