@@ -1,5 +1,5 @@
 <div class="card-container" (click)="togglePokemon(id())">
-    <div class="poke-card" [class.selected-bg]="isSelected()">
+    <div class="poke-card" [class.selected-bg]="isSelected()" [class.blur-card]="!isSelected() && isFull()">
         <div class="poke-image">
             <img src={{img()}} [alt]="name()"/>
         </div>

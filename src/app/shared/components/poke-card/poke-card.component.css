@@ -46,3 +46,7 @@
 .card-container{
     cursor: pointer;
 }
+
+.blur-card{
+    opacity: 0.4;
+}

@@ -29,4 +29,6 @@ export class PokeCardComponent {
     this.selectionService.toggleId(id);
   }
 
+  isFull = computed(()=>this.selectionService.isFull())
+
 }

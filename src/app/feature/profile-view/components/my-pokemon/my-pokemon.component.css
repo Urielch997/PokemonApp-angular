@@ -56,22 +56,26 @@
     width: 50%;
     font-size: 20px;
     font-weight: 400;
+    display: flex;
+    margin-top: 5px;
+    align-items: center;
 }
 
 
 .progess-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50%;
+    margin-top: 5px;
 }
 
 .stats-card {
     display: flex;
     flex-wrap: wrap;
-}
-
-.stats-card,
-.stats-text {
     margin-top: 10px;
 }
+
 
 .stats-container {
     width: 60%;
@@ -87,7 +91,7 @@
     align-items: center;
 }
 
-.image img{
+.image img {
     margin-top: 20px;
     width: 100%;
 }
@@ -108,12 +112,12 @@
     height: 30px;
 }
 
-.poke-name{
+.poke-name {
     font-size: 30px;
     font-weight: 700;
 }
 
-.poke-type{
+.poke-type {
     font-size: 18px;
     font-weight: 400;
 }

@@ -10,9 +10,7 @@
     <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
         <div class="card-pokemon-continaer-list">
             <div *cdkVirtualFor="let p of filteredPokemon()">
-               
                 <app-poke-card [id]="p.id" [name]="p.name" [img]="p.image"></app-poke-card>
-                
             </div>
         </div>
     </cdk-virtual-scroll-viewport>
